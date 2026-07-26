@@ -1,1 +1,87 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>முடிவுகள்</title>
+
+<style>
+body{
+background:#08152d;
+font-family:Arial;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.card{
+width:90%;
+max-width:500px;
+background:#10264d;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 20px gold;
+}
+
+h1{
+color:gold;
+}
+
+.score{
+font-size:45px;
+margin:25px;
+color:#00ff99;
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+background:gold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎉 வாழ்த்துக்கள்</h1>
+
+<h2>நீங்கள் அனைத்து பிரிவுகளையும் முடித்துவிட்டீர்கள்.</h2>
+
+<div class="score" id="score">
+0
+</div>
+
+<p>
+இறுதி முடிவுகள்
+<br>
+📅 30-08-2026 அன்று வெளியிடப்படும்.
+</p>
+
+<button onclick="location='dashboard.html'">
+Dashboard
+</button>
+
+</div>
+
+<script>
+
+let score = localStorage.getItem("score") || 0;
+
+document.getElementById("score").innerHTML =
+score + " Marks";
+
+</script>
+
+</body>
+</html>
