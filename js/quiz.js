@@ -3,93 +3,98 @@ let completed = 0;
 let waiting = 0;
 
 const questions = section1;
+const answers = [];
 
 loadQuestion();
 
-function loadQuestion(){
+function loadQuestion() {
 
-document.querySelector(".questionNo").innerHTML =
-"கேள்வி " + (currentQuestion+1) + " / 10";
+    let q = questions[currentQuestion];
 
-document.getElementById("question").innerHTML =
-questions[currentQuestion].question;
+    document.querySelector(".questionNo").innerHTML =
+        "கேள்வி " + (currentQuestion + 1) + " / 10";
 
-let optionHTML="";
+    document.getElementById("question").innerHTML = q.question;
 
-questions[currentQuestion].choices.forEach((choice,index)=>{
+    let html = "";
 
-optionHTML+=`
-<div class="option">
-<label>
-<input type="radio"
-name="answer"
-value="${index}">
-${choice}
-</label>
-</div>
-`;
+    q.choices.forEach((choice, index) => {
 
-});
+        html += `
+        <div class="option">
+            <label>
+            <input type="radio" name="answer" value="${index}">
+            ${choice}
+            </label>
+        </div>`;
+    });
 
-document.getElementById("options").innerHTML=optionHTML;
+    document.getElementById("options").innerHTML = html;
 
-document.getElementById("reference").innerHTML=
-"📖 " + questions[currentQuestion].reference;
+    document.getElementById("reference").innerHTML =
+        "📖 " + q.reference;
 
-updateProgress();
+    updateStatus();
 
 }
 
-function updateProgress(){
+document.querySelector(".submit").onclick = function () {
 
-let percent=((currentQuestion)/10)*100;
+    let ans = document.querySelector("input[name='answer']:checked");
 
-document.getElementById("bar").style.width=percent+"%";
+    if (!ans) {
 
-}
+        alert("ஒரு பதிலைத் தேர்வு செய்யுங்கள்");
+        return;
 
-document.querySelector(".wait").onclick=function(){
+    }
 
-waiting++;
+    answers[currentQuestion] = Number(ans.value);
 
-nextQuestion();
+    completed++;
 
-}
-
-document.querySelector(".submit").onclick=function(){
-
-let ans=document.querySelector("input[name='answer']:checked");
-
-if(!ans){
-
-alert("முதலில் ஒரு பதிலைத் தேர்வு செய்யுங்கள்");
-
-return;
+    nextQuestion();
 
 }
 
-completed++;
+document.querySelector(".wait").onclick = function () {
 
-nextQuestion();
+    answers[currentQuestion] = "WAIT";
 
-}
+    waiting++;
 
-function nextQuestion(){
-
-currentQuestion++;
-
-if(currentQuestion<10){
-
-loadQuestion();
+    nextQuestion();
 
 }
 
-else{
+function nextQuestion() {
 
-alert("🎉 பிரிவு 1 முடிந்தது");
+    currentQuestion++;
 
-window.location="dashboard.html";
+    if (currentQuestion == 10) {
+
+        alert("🎉 பிரிவு 1 முடிந்தது");
+
+        window.location = "dashboard.html";
+
+        return;
+
+    }
+
+    loadQuestion();
 
 }
+
+function updateStatus() {
+
+    let remain = 10 - (completed + waiting);
+
+    document.querySelector(".status").innerHTML = `
+    <div>✅ Completed : ${completed}</div>
+    <div>🟡 Waiting : ${waiting}</div>
+    <div>⚪ Remaining : ${remain}</div>`;
+
+    document.getElementById("bar").style.width =
+        ((completed + waiting) / 10 * 100) + "%";
 
 }
