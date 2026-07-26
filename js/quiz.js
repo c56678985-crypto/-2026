@@ -55,6 +55,14 @@ document.querySelector(".submit").onclick = function () {
 
     nextQuestion();
 
+    saveAnswer(
+quizId,
+"section1",
+currentQuestion+1,
+answers[currentQuestion],
+"Submitted"
+);
+
 }
 
 document.querySelector(".wait").onclick = function () {
@@ -64,7 +72,14 @@ document.querySelector(".wait").onclick = function () {
     waiting++;
 
     nextQuestion();
-
+    
+saveAnswer(
+quizId,
+"section1",
+currentQuestion+1,
+"WAIT",
+"Waiting"
+);
 }
 
 function nextQuestion() {
