@@ -92,6 +92,10 @@ function nextQuestion() {
 
         alert("🎉 பிரிவு 1 முடிந்தது");
 
+        let score = calculateScore(questions,answers);
+
+alert("உங்கள் மதிப்பெண் : "+score);
+
         window.location = "dashboard.html";
 
         return;
