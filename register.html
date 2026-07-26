@@ -1,1 +1,143 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>பதிவு - யோனா வினாடி வினா 2026</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#08152d;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.card{
+width:90%;
+max-width:400px;
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px rgba(255,215,0,.4);
+}
+
+h2{
+text-align:center;
+color:gold;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:10px;
+background:gold;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#ffd700;
+}
+
+p{
+text-align:center;
+margin-top:15px;
+}
+
+a{
+color:gold;
+text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h2>யோனா வினாடி வினா 2026</h2>
+
+<input type="text" id="name" placeholder="முழு பெயர்">
+
+<input type="date" id="dob">
+
+<input type="password" id="pin" maxlength="4" placeholder="4 இலக்க PIN">
+
+<input type="password" id="cpin" maxlength="4" placeholder="PIN உறுதிப்படுத்து">
+
+<button onclick="register()">பதிவு செய்</button>
+
+<p>
+ஏற்கனவே பதிவு செய்துவிட்டீர்களா?
+<br>
+<a href="login.html">உள்நுழைக</a>
+</p>
+
+</div>
+
+<script>
+
+function register(){
+
+let name=document.getElementById("name").value;
+let dob=document.getElementById("dob").value;
+let pin=document.getElementById("pin").value;
+let cpin=document.getElementById("cpin").value;
+
+if(name==""){
+alert("பெயரை உள்ளிடவும்");
+return;
+}
+
+if(dob==""){
+alert("பிறந்த தேதியை உள்ளிடவும்");
+return;
+}
+
+if(pin.length!=4){
+alert("4 இலக்க PIN மட்டும்");
+return;
+}
+
+if(pin!=cpin){
+alert("PIN பொருந்தவில்லை");
+return;
+}
+
+let quizId="RCBQ"+Math.floor(Math.random()*999999);
+
+localStorage.setItem("quizId",quizId);
+localStorage.setItem("name",name);
+localStorage.setItem("dob",dob);
+localStorage.setItem("pin",pin);
+
+alert("பதிவு வெற்றிகரமாக முடிந்தது\n\nQuiz ID : "+quizId);
+
+location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
