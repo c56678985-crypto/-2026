@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
 
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#071a35;
+color:white;
+}
+
+header{
+background:gold;
+color:black;
+padding:15px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:#10264d;
+padding:20px;
+margin-bottom:15px;
+border-radius:15px;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+background:#17396f;
+transform:scale(1.02);
+}
+
+h2{
+margin:0;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+font-size:18px;
+background:gold;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+யோனா வினாடி வினா 2026
+</header>
+
+<div class="container">
+
+<div class="card" onclick="openSection(1)">
+<h2>📖 பிரிவு 1</h2>
+<p>10 கேள்விகள்</p>
+</div>
+
+<div class="card" onclick="openSection(2)">
+<h2>📖 பிரிவு 2</h2>
+<p>10 கேள்விகள்</p>
+</div>
+
+<div class="card" onclick="openSection(3)">
+<h2>📖 பிரிவு 3</h2>
+<p>10 கேள்விகள்</p>
+</div>
+
+<div class="card" onclick="openSection(4)">
+<h2>📖 பிரிவு 4</h2>
+<p>10 கேள்விகள்</p>
+</div>
+
+<div class="card" onclick="openSection(5)">
+<h2>📖 பிரிவு 5</h2>
+<p>10 கேள்விகள்</p>
+</div>
+
+<div class="card" onclick="location='library.html'">
+<h2>📚 விவிலிய நூலகம்</h2>
+<p>தோபித்து & யூதித்து</p>
+</div>
+
+<button onclick="logout()">வெளியேறு</button>
+
+</div>
+
+<script>
+
+function openSection(section){
+
+alert("பிரிவு " + section + " திறக்கப்படுகிறது.");
+
+window.location="section"+section+".html";
+
+}
+
+function logout(){
+
+window.location="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
