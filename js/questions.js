@@ -1,4 +1,4 @@
-const section1 = [
+const questions = [
 
 {
 id:1,
@@ -132,8 +132,8 @@ reference:"தோபித்து 12:15"
 
 ];
 
-const section2 = [
 
+const questions = [
 {
 id:11,
 question:"யூதித்து எந்த நகரத்தைச் சேர்ந்தவர்?",
@@ -266,7 +266,7 @@ reference:"யூதித்து 16:23"
 
 ];
 
-const section3 = [
+const questions = [
 
 {
 id:21,
@@ -400,7 +400,7 @@ reference:"தோபித்து 14:12"
 
 ];
 
-const section4 = [
+const questions = [
 
 {
 id:31,
@@ -535,7 +535,7 @@ reference:"தோபித்து 12:11-15"
 
 ];
 
-const section5 = [
+const questions = [
 
 {
 id:41,
