@@ -1,1 +1,119 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>உள்நுழை - யோனா வினாடி வினா 2026</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#08152d;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.box{
+width:90%;
+max-width:400px;
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,215,0,.4);
+}
+
+h2{
+text-align:center;
+color:gold;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:15px;
+background:gold;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#ffd700;
+}
+
+a{
+color:gold;
+text-decoration:none;
+display:block;
+text-align:center;
+margin-top:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>யோனா வினாடி வினா 2026</h2>
+
+<input type="text" id="quizid" placeholder="Quiz ID">
+
+<input type="password" id="pin" placeholder="4 இலக்க PIN">
+
+<button onclick="login()">உள்நுழை</button>
+
+<a href="#">PIN மறந்துவிட்டதா?</a>
+
+</div>
+
+<script>
+
+function login(){
+
+let id=document.getElementById("quizid").value;
+let pin=document.getElementById("pin").value;
+
+if(id==localStorage.getItem("quizId") &&
+pin==localStorage.getItem("pin")){
+
+alert("உள்நுழைவு வெற்றிகரமாக முடிந்தது");
+
+window.location="rules.html";
+
+}
+else{
+
+alert("Quiz ID அல்லது PIN தவறானது");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
