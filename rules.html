@@ -1,1 +1,98 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>விதிமுறைகள்</title>
+
+<style>
+body{
+font-family:Arial;
+background:#08152d;
+color:white;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:#10264d;
+padding:20px;
+border-radius:15px;
+}
+
+h1{
+color:gold;
+text-align:center;
+}
+
+ul{
+line-height:2;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+background:gold;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+label{
+display:block;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>யோனா வினாடி வினா 2026</h1>
+
+<h3>விதிமுறைகள்</h3>
+
+<ul>
+<li>மொத்தம் 50 கேள்விகள்.</li>
+<li>5 பிரிவுகள் (ஒவ்வொன்றிலும் 10 கேள்விகள்).</li>
+<li>ஒவ்வொரு சரியான விடைக்கும் +2 மதிப்பெண்கள்.</li>
+<li>ஒவ்வொரு தவறான விடைக்கும் −0.5 மதிப்பெண்.</li>
+<li>ஒருமுறை Submit செய்த பதிலை மாற்ற முடியாது.</li>
+<li>Waiting Answer பயன்படுத்தலாம்.</li>
+<li>வினாடி வினா முடித்த பிறகு Result 30-08-2026 அன்று வெளியிடப்படும்.</li>
+</ul>
+
+<label>
+<input type="checkbox" id="agree">
+நான் மேற்கண்ட விதிமுறைகளை ஏற்கிறேன்.
+</label>
+
+<button onclick="startQuiz()">வினாடி வினாவை தொடங்கு</button>
+
+</div>
+
+<script>
+function startQuiz(){
+
+if(document.getElementById("agree").checked){
+
+window.location="dashboard.html";
+
+}else{
+
+alert("முதலில் விதிமுறைகளை ஏற்கவும்.");
+
+}
+
+}
+</script>
+
+</body>
+</html>
