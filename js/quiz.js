@@ -96,6 +96,10 @@ function nextQuestion() {
 
 alert("உங்கள் மதிப்பெண் : "+score);
 
+        localStorage.setItem("score",score);
+
+window.location="result.html";
+
         window.location = "dashboard.html";
 
         return;
