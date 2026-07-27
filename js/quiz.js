@@ -3,6 +3,8 @@ let completed = 0;
 let waiting = 0;
 let answers = [];
 
+console.log(questions);
+
 loadQuestion();
 
 function loadQuestion() {
