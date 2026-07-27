@@ -1,20 +1,21 @@
-import { calculateScore } from "./score.js";
-
 let currentQuestion = 0;
 let completed = 0;
 let waiting = 0;
-
-const questions = section1;
-const answers = [];
+let answers = [];
 
 loadQuestion();
 
 function loadQuestion() {
 
-    let q = questions[currentQuestion];
+    const q = questions[currentQuestion];
+
+    if (!q) {
+        alert("Question not found!");
+        return;
+    }
 
     document.querySelector(".questionNo").innerHTML =
-        "கேள்வி " + (currentQuestion + 1) + " / 10";
+        "கேள்வி " + (currentQuestion + 1) + " / " + questions.length;
 
     document.getElementById("question").innerHTML = q.question;
 
@@ -23,32 +24,29 @@ function loadQuestion() {
     q.choices.forEach((choice, index) => {
 
         html += `
-        <div class="option">
-            <label>
-            <input type="radio" name="answer" value="${index}">
+        <label class="option">
+            <input type="radio"
+                   name="answer"
+                   value="${index}">
             ${choice}
-            </label>
-        </div>`;
+        </label>
+        `;
+
     });
 
     document.getElementById("options").innerHTML = html;
-
-    document.getElementById("reference").innerHTML =
-        "📖 " + q.reference;
 
     updateStatus();
 
 }
 
-document.querySelector(".submit").onclick = function () {
+document.querySelector(".submit").addEventListener("click", function () {
 
-    let ans = document.querySelector("input[name='answer']:checked");
+    const ans = document.querySelector('input[name="answer"]:checked');
 
     if (!ans) {
-
-        alert("ஒரு பதிலைத் தேர்வு செய்யுங்கள்");
+        alert("முதலில் ஒரு பதிலை தேர்வு செய்யுங்கள்.");
         return;
-
     }
 
     answers[currentQuestion] = Number(ans.value);
@@ -57,53 +55,31 @@ document.querySelector(".submit").onclick = function () {
 
     nextQuestion();
 
-    saveAnswer(
-quizId,
-"section1",
-currentQuestion+1,
-answers[currentQuestion],
-"Submitted"
-);
+});
 
-}
-
-document.querySelector(".wait").onclick = function () {
+document.querySelector(".wait").addEventListener("click", function () {
 
     answers[currentQuestion] = "WAIT";
 
     waiting++;
 
     nextQuestion();
-    
-saveAnswer(
-quizId,
-"section1",
-currentQuestion+1,
-"WAIT",
-"Waiting"
-);
-}
+
+});
 
 function nextQuestion() {
 
     currentQuestion++;
 
-    if (currentQuestion == 10) {
+    if (currentQuestion >= questions.length) {
 
-        alert("🎉 பிரிவு 1 முடிந்தது");
+        localStorage.setItem("answers", JSON.stringify(answers));
 
-        let score = calculateScore(questions,answers);
+        alert("🎉 பிரிவு 1 வெற்றிகரமாக முடிந்தது!");
 
-alert("உங்கள் மதிப்பெண் : "+score);
-
-        localStorage.setItem("score",score);
-
-window.location="result.html";
-
-        window.location = "dashboard.html";
+        window.location.href = "result.html";
 
         return;
-
     }
 
     loadQuestion();
@@ -112,14 +88,16 @@ window.location="result.html";
 
 function updateStatus() {
 
-    let remain = 10 - (completed + waiting);
+    const remaining = questions.length - (completed + waiting);
 
     document.querySelector(".status").innerHTML = `
-    <div>✅ Completed : ${completed}</div>
-    <div>🟡 Waiting : ${waiting}</div>
-    <div>⚪ Remaining : ${remain}</div>`;
+        <div>✅ Completed : ${completed}</div>
+        <div>🟡 Waiting : ${waiting}</div>
+        <div>⚪ Remaining : ${remaining}</div>
+    `;
 
-    document.getElementById("bar").style.width =
-        ((completed + waiting) / 10 * 100) + "%";
+    const percent = ((completed + waiting) / questions.length) * 100;
+
+    document.getElementById("bar").style.width = percent + "%";
 
 }
