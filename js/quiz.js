@@ -1,4 +1,4 @@
-alert("quiz.js loaded");
+alert("quiz loaded");
 
 let currentQuestion = 0;
 let completed = 0;
