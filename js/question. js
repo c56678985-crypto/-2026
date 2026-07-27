@@ -1,5 +1,3 @@
-alert("questions loaded");
-
 const questions = [
   {
     id: 1,
