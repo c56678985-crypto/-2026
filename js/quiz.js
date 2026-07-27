@@ -1,3 +1,5 @@
+alert("quiz.js loaded");
+
 let currentQuestion = 0;
 let completed = 0;
 let waiting = 0;
