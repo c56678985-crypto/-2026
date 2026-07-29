@@ -1,4 +1,4 @@
-
+console.log(questions);
 const q = questions[0];
 
 document.getElementById("question").innerHTML = q.question;
