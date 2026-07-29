@@ -3,10 +3,10 @@ const questions = [
     id: 1,
     question: "Test Question",
     choices: [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Option A",
+      "Option B",
+      "Option C",
+      "Option D"
     ]
   }
 ];
