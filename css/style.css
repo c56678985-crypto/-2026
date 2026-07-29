@@ -1,1 +1,87 @@
+.tracker{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
 
+.completedBox,
+.waitingBox,
+.remainingBox{
+
+padding:15px;
+border-radius:12px;
+
+}
+
+.completedBox{
+
+background:#0d5d32;
+border:2px solid #1aff8c;
+
+}
+
+.waitingBox{
+
+background:#8c6b00;
+border:2px solid gold;
+
+}
+
+.remainingBox{
+
+background:#303030;
+border:2px solid #888;
+
+}
+
+.completedBox h3,
+.waitingBox h3,
+.remainingBox h3{
+
+margin:0 0 10px;
+font-size:18px;
+
+}
+
+#completedList,
+#waitingList,
+#remainingList{
+
+font-size:17px;
+line-height:32px;
+word-break:break-word;
+
+}
+
+.buttons{
+
+display:flex;
+gap:15px;
+margin-top:25px;
+
+}
+
+.wait{
+
+flex:1;
+height:55px;
+font-size:18px;
+background:#ff9800;
+color:#fff;
+border:none;
+border-radius:12px;
+
+}
+
+.submit{
+
+flex:1;
+height:55px;
+font-size:18px;
+background:#00b050;
+color:#fff;
+border:none;
+border-radius:12px;
+
+}
