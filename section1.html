@@ -1,57 +1,175 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>யோனா வினாடி வினா 2026</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#08152d;
+color:#fff;
+}
+
+header{
+background:linear-gradient(90deg,#FFD700,#C9A227);
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:#000;
+box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+.container{
+width:92%;
+max-width:900px;
+margin:20px auto;
+}
+
+.progress{
+height:15px;
+background:#333;
+border-radius:30px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.bar{
+height:100%;
+width:0%;
+background:#00d26a;
+transition:.4s;
+}
+
+.card{
+background:#132b56;
+border-radius:15px;
+padding:20px;
+box-shadow:0 0 15px rgba(0,0,0,.35);
+}
+
+.questionNo{
+font-size:22px;
+color:#FFD700;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.question{
+font-size:24px;
+line-height:38px;
+margin-bottom:20px;
+}
+
+.option{
+display:block;
+background:#1f4b8f;
+padding:15px;
+margin:12px 0;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.option:hover{
+background:#2b64bc;
+}
+
+.option input{
+margin-right:10px;
+transform:scale(1.2);
+}
+
+.reference{
+margin-top:15px;
+font-size:18px;
+color:#FFD700;
+} 
+
+    </style>
+</head>
+
+<body>
+
+<header>
+யோனா வினாடி வினா 2026
+</header>
+
+<div class="container">
 
 <div class="progress">
-    <div class="bar" id="bar"></div>
+<div class="bar" id="bar"></div>
 </div>
 
 <div class="card">
 
-    <div class="questionNo">
-        கேள்வி 1 / 30
-    </div>
+<div class="questionNo">
+கேள்வி <span id="qNo">1</span> / 30
+</div>
 
-    <div class="question" id="question">
-        Loading...
-    </div>
+<div class="question" id="question">
+Loading...
+</div>
 
-    <div id="options"></div>
+<div id="options"></div>
 
-    <div class="reference" id="reference">
-        📖 அதிகாரம்
-    </div>
+<div class="reference" id="reference">
+📖 அதிகாரம்
+</div>
 
-    <div class="tracker">
+<div class="tracker">
 
-        <div class="completedBox">
-            <h3>🟢 Completed Questions</h3>
-            <div id="completedList">None</div>
-        </div>
+<div class="completedBox">
+<h3>🟢 Completed Questions</h3>
+<div id="completedList">None</div>
+</div>
 
-        <div class="waitingBox">
-            <h3>🟡 Waiting Questions</h3>
-            <div id="waitingList">None</div>
-        </div>
+<div class="waitingBox">
+<h3>🟡 Waiting Questions</h3>
+<div id="waitingList">None</div>
+</div>
 
-        <div class="remainingBox">
-            <h3>⚪ Remaining Questions</h3>
-            <div id="remainingList">
-                1 2 3 4 5 6 7 8 9 10
-                11 12 13 14 15 16 17 18 19 20
-                21 22 23 24 25 26 27 28 29 30
-            </div>
-        </div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button class="wait">
-            🟡 Waiting
-        </button>
-
-        <button class="submit">
-            ✅ Submit
-        </button>
-
-    </div>
+<div class="remainingBox">
+<h3>⚪ Remaining Questions</h3>
+<div id="remainingList">
+1 2 3 4 5 6 7 8 9 10<br>
+11 12 13 14 15 16 17 18 19 20<br>
+21 22 23 24 25 26 27 28 29 30
+</div>
+</div>
 
 </div>
+
+<div class="buttons">
+
+<button class="wait">
+🟡 Waiting
+</button>
+
+<button class="submit">
+✅ Submit
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script src="js/questions.js"></script>
+<script src="js/quiz.js"></script>
+
+</body>
+</html>
