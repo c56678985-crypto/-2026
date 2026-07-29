@@ -35,6 +35,15 @@ document.querySelector(".submit").addEventListener("click", function () {
         return;
     }
 
+    const selected = document.querySelector('input[name="answer"]:checked');
+
+if (!selected) {
+    alert("முதலில் ஒரு பதிலை தேர்வு செய்யுங்கள்.");
+    return;
+}
+
+alert("✅ பதில் பதிவு செய்யப்பட்டது");
+
     currentQuestion++;
 
     if (currentQuestion >= questions.length) {
