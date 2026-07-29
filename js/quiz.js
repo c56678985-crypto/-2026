@@ -1,12 +1,67 @@
-console.log(questions);
-const q = questions[0];
+let currentQuestion = 0;
 
-document.getElementById("question").innerHTML = q.question;
+function loadQuestion() {
 
-let html = "";
+    const q = questions[currentQuestion];
 
-q.choices.forEach(choice => {
-  html += `<div class="option">${choice}</div>`;
+    document.getElementById("question").innerHTML = q.question;
+
+    let html = "";
+
+    q.choices.forEach((choice, index) => {
+
+        html += `
+        <label class="option">
+            <input type="radio" name="answer" value="${index}">
+            ${choice}
+        </label>
+        `;
+
+    });
+
+    document.getElementById("options").innerHTML = html;
+
+}
+
+loadQuestion();
+
+document.querySelector(".submit").addEventListener("click", function () {
+
+    const ans = document.querySelector('input[name="answer"]:checked');
+
+    if (!ans) {
+        alert("முதலில் ஒரு பதிலை தேர்வு செய்யுங்கள்");
+        return;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+
+        alert("🎉 அனைத்து கேள்விகளும் முடிந்தது!");
+
+        window.location.href = "result.html";
+
+        return;
+    }
+
+    loadQuestion();
+
 });
 
-document.getElementById("options").innerHTML = html;
+document.querySelector(".wait").addEventListener("click", function () {
+
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+
+        alert("🎉 அனைத்து கேள்விகளும் முடிந்தது!");
+
+        window.location.href = "result.html";
+
+        return;
+    }
+
+    loadQuestion();
+
+});
