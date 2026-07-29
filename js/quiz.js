@@ -66,3 +66,9 @@ document.querySelector(".wait").addEventListener("click", function () {
     loadQuestion();
 
 });
+document.querySelector(".wait").onclick = function () {
+    alert("Waiting clicked");
+};
+document.querySelector(".submit").onclick = function () {
+    alert("Submit clicked");
+};
