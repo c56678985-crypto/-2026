@@ -1,3 +1,4 @@
+alert(typeof questions);
 let currentQuestion = 0;
 
 function loadQuestion() {
