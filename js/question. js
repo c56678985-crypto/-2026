@@ -1,6 +1,5 @@
 const questions = [
   {
-    id: 1,
     question: "Test Question",
     choices: [
       "Option A",
