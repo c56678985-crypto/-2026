@@ -1,8 +1,12 @@
-document.getElementById("question").innerHTML = "Test Question";
 
-document.getElementById("options").innerHTML = `
-<div class="option">Option A</div>
-<div class="option">Option B</div>
-<div class="option">Option C</div>
-<div class="option">Option D</div>
-`;
+const q = questions[0];
+
+document.getElementById("question").innerHTML = q.question;
+
+let html = "";
+
+q.choices.forEach(choice => {
+  html += `<div class="option">${choice}</div>`;
+});
+
+document.getElementById("options").innerHTML = html;
